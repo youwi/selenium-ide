@@ -1,0 +1,16 @@
+.toggle-log {
+  color:#CCC;
+  transition: all 100ms linear;
+  transform: scale(.8,0.8);
+  border: 1px solid transparent;
+}
+.toggle-log:focus{
+  border: none;
+}
+.toggle-log-true{
+  transform:rotate(90deg)  scale(.8,0.8);
+}
+
+.toggle-log-false{
+  transform:rotate(-90deg)  scale(.8,0.8);
+}

@@ -21,7 +21,10 @@ import TabBar from "../../components/TabBar";
 import LogList from "../../components/LogList";
 import ClearButton from "../../components/ActionButtons/Clear";
 import LogStore from "../../stores/view/Logs";
+import UiState from "../../stores/view/UiState";
 import "./style.css";
+import ToggleButton from "../../components/ActionButtons/Clear/ToggleButton";
+import {observable} from "mobx";
 
 export default class Console extends React.Component {
   constructor(props) {
@@ -32,12 +35,14 @@ export default class Console extends React.Component {
     this.store.dispose();
   }
   render() {
+    //UiState.      UiState.toggleConsole();
     return (
       <footer className="console" style={{
         height: this.props.height ? `${this.props.height}px` : "initial"
       }}>
         <TabBar tabs={["Log"]} tabWidth={70} buttonsMargin={0}>
           <ClearButton onClick={this.store.clearLogs} />
+          <ToggleButton onClick={UiState.toggleConsole} toggle={UiState.consoleHeight>UiState.minConsoleHeight}/>
         </TabBar>
         <LogList store={this.store} />
       </footer>
